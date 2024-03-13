@@ -24,12 +24,20 @@ class GFG {
 class Solution {
     static int setBits(int N) {
         // code here
-        int count=0;
-        while(N!=0)
-        {
-            N=N&(N-1);
-            count++;
-        }
-        return count;
+        // int count=0;
+        // while(N!=0)
+        // {
+        //     N=N&(N-1);
+        //     count++;
+        // }
+        // return count;
+        int count = 0;
+        for (int i = 0; i < 31; i++) {
+        if ((N & (1 << i)) != 0) {
+        count++;
     }
+}
+return count;
+
+}
 }
