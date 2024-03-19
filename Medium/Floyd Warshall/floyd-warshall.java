@@ -36,6 +36,10 @@ class GFG
 
 //User function template for JAVA
 
+
+
+//User function template for JAVA
+
 class Solution
 {
     public void shortest_distance(int[][] matrix)
