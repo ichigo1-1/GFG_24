@@ -33,46 +33,40 @@ class DriverClass {
 
 class Solution {
     // Function to detect cycle in a directed graph.
-    public boolean dfs(int start,ArrayList<ArrayList<Integer>> adj,int[]vis,int[]path)
-    {
-        vis[start]=1;
-        path[start]=1;
-        //now look for adjacent nodes;
-        for(int it:adj.get(start))
-        {
-            if(vis[it]==0)
-            {
-                if(dfs(it,adj,vis,path)==true)
-                {
-                    return true;
-                }
-            }
-            //agar visited hai aur same path me hai
-            else{
-                if(path[it]==1)
-                {
-                    return true;
-                }
-            }
-        }
-        //while going back remove from path and return false
-        path[start]=0;
-        return false;
-    }
-    public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+    public boolean isCyclic(int v, ArrayList<ArrayList<Integer>> adj) {
         // code here
-        int[]vis=new int[V];
-        int[]pathVis=new int[V];
-        for(int i=0;i<V;i++)
-        {
-            if(vis[i]==0)
-            {
-                if(dfs(i,adj,vis,pathVis)==true)
-                {
-                    return true;
+         int[] indegree = new int[v];
+        for (int i = 0; i < v; i++) {
+            for (int it : adj.get(i)) {
+                indegree[it]++; // Increment indegree of the destination vertex
+            }
+        }
+
+        Queue<Integer> q = new LinkedList<Integer>();
+        for (int i = 0; i < v; i++) {
+            if (indegree[i] == 0) {
+                q.add(i);
+            }
+        }
+
+        int count=0;
+        int indexes = 0;
+        while (!q.isEmpty()) {
+            int peekelement = q.peek();
+            q.remove();
+            count++;
+            // Look for neighbors
+            for (int it : adj.get(peekelement)) {
+                indegree[it]--;
+                if (indegree[it] == 0) {
+                    q.add(it);
                 }
             }
         }
-        return false;
+        if(count==v)
+        {
+            return false;
+        }
+        return true;
     }
 }
