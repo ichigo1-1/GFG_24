@@ -25,25 +25,18 @@ class GFG
 
 //User function Template for Java
 class Solution{
-    static void printTillN(int N){
-        // code here
-        int[]res=new int[N];
-        rec(N,res);
-        for(int it:res)
-        {
-            System.out.print(it+" ");
-        }
-        
-    }
-    static void rec(int N,int[]res)
+    static void rec(int start,int n)
     {
-        if(N==0)
+        if(start>n)
         {
             return;
         }
-        rec(N-1,res);
-        res[N-1]=N;
-        
-        return;
+        System.out.print(start+" ");
+        start++;
+        rec(start,n);
+    }
+    static void printTillN(int N){
+        // code here
+        rec(1,N);
     }
 }
