@@ -25,18 +25,27 @@ class GFG
 
 //User function Template for Java
 class Solution{
-    static void rec(int start,int n)
+    static void rec(int start,int N)
     {
-        if(start>n)
+        // if(start>n)
+        // {
+        //     return;
+        // }
+        // System.out.print(start+" ");
+        // start++;
+        // rec(start,n);
+        
+        
+        //using backtracking
+        if(start<1)
         {
             return;
         }
+        rec(start-1,N);
         System.out.print(start+" ");
-        start++;
-        rec(start,n);
     }
     static void printTillN(int N){
         // code here
-        rec(1,N);
+        rec(N,N);
     }
 }
