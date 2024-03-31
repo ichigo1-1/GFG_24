@@ -34,47 +34,64 @@ class Rat {
 
 // m is the given matrix and n is the order of matrix
 class Solution {
-    private static void backtrack(int i, int j, int[][] m, int n, ArrayList<String> ans, String move, boolean[][] visited) {
-        if (i == n - 1 && j == n - 1) {
+    public static void backtrack(int i,int j,ArrayList<String>ans,int[][]arr,int n,String move,int[][]vis)
+    {
+        //base case
+        if(i==n-1 && j==n-1)
+        {
+          
             ans.add(move);
             return;
         }
-
-        // downward
-        if (i + 1 < n && !visited[i + 1][j] && m[i + 1][j] == 1) {
-            visited[i][j] = true;
-            backtrack(i + 1, j, m, n, ans, move + 'D', visited);
-            visited[i][j] = false;
+        //downward
+        if(i+1<n && arr[i+1][j]==1 && vis[i+1][j]==0)
+        {
+            vis[i][j]=1;
+            backtrack(i+1,j,ans,arr,n,move+"D",vis);
+            //remove added node
+            vis[i][j]=0;
         }
-
-        // right 
-        if (j + 1 < n && !visited[i][j + 1] && m[i][j + 1] == 1) {
-            visited[i][j] = true;
-            backtrack(i, j + 1, m, n, ans, move + 'R', visited);
-            visited[i][j] = false;
+        
+        //left
+        if(j-1>=0 && arr[i][j-1]==1 && vis[i][j-1]==0)
+        {
+            vis[i][j]=1;
+            backtrack(i,j-1,ans,arr,n,move +"L",vis);
+            //remove added node
+            vis[i][j]=0;
         }
-
-        // left
-        if (j - 1 >= 0 && !visited[i][j - 1] && m[i][j - 1] == 1) {
-            visited[i][j] = true;
-            backtrack(i, j - 1, m, n, ans, move + 'L', visited);
-            visited[i][j] = false;
+        
+        //right
+        if(j+1<n && arr[i][j+1]==1 && vis[i][j+1]==0)
+        {
+            vis[i][j]=1;
+            backtrack(i,j+1,ans,arr,n,move + 'R',vis);
+            //remove added node
+            vis[i][j]=0;
         }
-
-        // upward
-        if (i - 1 >= 0 && !visited[i - 1][j] && m[i - 1][j] == 1) {
-            visited[i][j] = true;
-            backtrack(i - 1, j, m, n, ans, move + 'U', visited);
-            visited[i][j] = false;
+        
+        //upward
+        if(i-1>=0 && arr[i-1][j]==1 && vis[i-1][j]==0)
+        {
+            vis[i][j]=1;
+            backtrack(i-1,j,ans,arr,n,move + 'U',vis);
+            //remove added node
+            vis[i][j]=0;
         }
+        
     }
-
     public static ArrayList<String> findPath(int[][] m, int n) {
-        ArrayList<String> ans = new ArrayList<>();
-        boolean[][] visited = new boolean[n][n];
-        if (m[0][0] == 1) {
-            backtrack(0, 0, m, n, ans, "", visited);
-        }
+        // Your code here
+        ArrayList<String>ans=new ArrayList<>();
+        int[][]vis=new int[n][n];
+        String move="";
+        //spl case 
+        //if start is 0 ans=-1;
+        if(m[0][0]==1)
+            backtrack(0,0,ans,m,n,move,vis);
+        else{
+            return new ArrayList<String>();
+        }    
         return ans;
     }
 }
