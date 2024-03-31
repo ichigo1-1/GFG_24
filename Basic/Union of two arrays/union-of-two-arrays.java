@@ -54,17 +54,18 @@ class Solution{
     public static int doUnion(int a[], int n, int b[], int m) 
     {
         //Your code here
-        HashSet<Integer>hs=new HashSet<>();
+        HashSet<Integer>set=new HashSet<>();
         for(int it:a)
         {
-            hs.add(it);
+            set.add(it);
         }
         for(int it:b)
         {
-            hs.add(it);
+            set.add(it);
         }
-        List<Integer>arr=new ArrayList<>();
-        arr.addAll(hs);
-        return arr.size();
+        List<Integer>ls=new ArrayList<>();
+        ls.addAll(set);
+        Collections.sort(ls);
+        return ls.size();
     }
 }
