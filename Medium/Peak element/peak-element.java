@@ -46,25 +46,39 @@ class PeakElement{
 
 class Solution
 {
-	// Function to find the peak element
-	// arr[]: input array
-	// n: size of array a[]
-	public int peakElement(int[] arr,int n)
-    {
-       //add code here.
-       int low=0;
-       int high=n-1;
-       while(low<high)
-       {
-           int mid=low+(high-low)/2;
-           if(arr[mid]>=arr[mid+1])
-           {
-               high=mid;
-           }
-           else{
-               low=mid+1;
-           }
-       }
-       return low;
+    
+    int binarysearch(int arr[], int s, int e, int n) {
+        while (s <= e) {
+            int m = (s+e) / 2;
+            
+            if (arr[m] >= arr[m - 1] && arr[m] >= arr[m + 1]) {
+                return m; 
+            }
+            else if (arr[m - 1] > arr[m]) {
+                e = m - 1;
+            }
+            else if(arr[m]<arr[m+1]){
+                s = m + 1;
+            }
+        }
+        return -1; 
     }
-}
+    int peakElement(int arr[], int n)
+    {
+       int s=0,e=n-1;
+      if(n==1){
+          return 0;
+      }
+      if(arr[0]>=arr[1]){
+          return s;
+      }
+       
+      if(arr[n-1]>=arr[n-2]){
+           
+          return e;
+      }
+       int ans = binarysearch(arr,1,n-2,n);
+       
+       return ans;
+    }
+};
