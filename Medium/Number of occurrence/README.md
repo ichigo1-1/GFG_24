@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1">Number of occurrence</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a sorted array <strong>Arr&nbsp;</strong>of size <strong>N </strong>and a number <strong>X</strong>, you need to find the number of occurrences of<strong> X</strong> in <strong>Arr</strong>.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article">Number of occurrence</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a sorted array <strong>Arr&nbsp;</strong>of size <strong>N </strong>and a number <strong>X</strong>, you need to find the number of occurrences of<strong> X</strong> in <strong>Arr</strong>.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input:
 </strong>N = 7, X = 2
