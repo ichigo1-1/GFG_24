@@ -29,6 +29,7 @@ class Solution
      long floorSqrt(long x)
 	 {
 		// Your code here
+		
 		long y=x;
 		long low=1;
 		long high=y;
@@ -37,7 +38,7 @@ class Solution
 		{
 		    long mid=(low+high)/2;
 		    long val=mid*mid;
-		    if(val<=y)
+		    if(val<y)
 		    {
 		        ans=mid;
 		        low=mid+1;
@@ -50,3 +51,4 @@ class Solution
 		return ans;
 	 }
 }
+
