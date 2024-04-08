@@ -40,10 +40,18 @@ class GFG {
 
 
 
-class Solution {
-    // Function to check if two strings are rotations of each other or not.
-    public static boolean areRotations(String s1, String s2) {
-        // Check if the lengths of the strings are different, if so, they can't be rotations.
+class Solution
+{
+    //Function to check if two strings are rotations of each other or not.
+    public static boolean areRotations(String s1, String s2 )
+    {
+        // Your code here
+        // if(s1.length()!=s2.length())
+        // {
+        //     return false;
+        // }
+        // s1+=s1;
+        // return s1.contains(s2);
          StringBuilder temp = new StringBuilder();
        temp.append(s1);
        temp.append(s1);
@@ -52,4 +60,5 @@ class Solution {
        return false;
        else return true;
     }
+    
 }
