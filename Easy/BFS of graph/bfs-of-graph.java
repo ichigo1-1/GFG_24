@@ -37,29 +37,65 @@ class Solution {
     // Function to return Breadth First Traversal of given graph.
     public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
-        ArrayList<Integer>bfs =new ArrayList<>();
-        int[]vis=new int[V];
-        
-        Queue<Integer>q=new LinkedList<Integer>();
-        q.add(0);
-        vis[0]=1;
-        
-        while(!q.isEmpty())
-        {
-            int topel=q.poll();
-            bfs.add(topel);
-            //look for neighbors
-            for(int it:adj.get(topel))
-            {
-                if(vis[it]==0)
-                {
-                    vis[it]=1;
-                    q.add(it);
-                }
-            }
-            
-        }
-        return bfs;
-        
+       int[]vis=new int[V];
+       Queue<Integer>q=new LinkedList<>();
+       ArrayList<Integer>bfs=new ArrayList<>();
+       
+       vis[0]=1;
+       q.add(0);
+       while(!q.isEmpty())
+       {
+           int remove=q.poll();
+           bfs.add(remove);
+           //look for adjacents
+           for(Integer it:adj.get(remove))
+           {
+               if(vis[it]!=1)
+               {
+                   vis[it]=1;
+                   //add
+                   q.add(it);
+               }
+               
+           }
+       }
+       return bfs;
     }
 }
+//space:- o(3n)
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ArrayList<Integer>bfs =new ArrayList<>();
+//         int[]vis=new int[V];
+        
+//         Queue<Integer>q=new LinkedList<Integer>();
+//         q.add(0);
+//         vis[0]=1;
+        
+//         while(!q.isEmpty())
+//         {
+//             int topel=q.poll();
+//             bfs.add(topel);
+//             //look for neighbors
+//             for(int it:adj.get(topel))
+//             {
+//                 if(vis[it]==0)
+//                 {
+//                     vis[it]=1;
+//                     q.add(it);
+//                 }
+//             }
+            
+//         }
+//         return bfs;
