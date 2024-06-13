@@ -33,19 +33,19 @@ class Solution {
     static int singleElement(int[] arr , int N) {
         // code here
         int ans=0;
-        for(int i=0;i<32;i++)
+        for(int bind=0;bind<32;bind++)
         {
-            int sum=0;
-            for(int j=0;j<N;j++)
+            int count=0;
+            for(int i=0;i<N;i++)
             {
-                if(((arr[j]>>i)&1)==1)
+                if((arr[i]&(1<<bind))!=0)
                 {
-                    sum++;
+                    count++;
                 }
             }
-            sum=sum%3;
-            if(sum!=0){
-                ans |=sum<<i;
+            if(count%3==1)
+            {
+                ans=ans|(1<<bind);
             }
         }
         return ans;
