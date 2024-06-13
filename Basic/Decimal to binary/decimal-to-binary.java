@@ -24,16 +24,29 @@ class GFG{
 class Solution{
 	void toBinary(int N) {
 		//Write your code here
-		int rem = 0 , i = 0;
-        ArrayList<Integer> arr = new ArrayList<>();
-        while(N > 0){
-            rem = N%2;
-            arr.add(rem);
-            N = N/2;
-        }
+// 		int rem = 0 , i = 0;
+//         ArrayList<Integer> arr = new ArrayList<>();
+//         while(N > 0){
+//             rem = N%2;
+//             arr.add(rem);
+//             N = N/2;
+//         }
         
-        for(int j = arr.size()-1 ; j >= 0 ; j--){
-            System.out.print(arr.get(j));
-        }
+//         for(int j = arr.size()-1 ; j >= 0 ; j--){
+//             System.out.print(arr.get(j));
+//         }
+int rem=0;
+int i=0;
+ArrayList<Integer>arr=new ArrayList<>();
+while(N>0)
+{
+    rem=N%2;
+    arr.add(rem);
+    N/=2;
+}
+for(int j=arr.size()-1;j>=0;j--)
+{
+    System.out.print(arr.get(j));
+}
     }
 	}
