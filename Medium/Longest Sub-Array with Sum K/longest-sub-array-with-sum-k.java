@@ -52,7 +52,7 @@ class Solution{
     // Function for finding maximum and value pair
     public static int lenOfLongSubarr (int A[], int N, int K) {
         //Complete the function
-       HashMap<Integer,Integer>hm=new HashMap<>();
+      HashMap<Integer,Integer>hm=new HashMap<>();
         int ans=0;
         int sum=0;
         for(int i=0;i<N;i++)
@@ -74,9 +74,9 @@ class Solution{
             }
         }
         return ans;
-    }
+    
     
     
 }
-
+}
 
