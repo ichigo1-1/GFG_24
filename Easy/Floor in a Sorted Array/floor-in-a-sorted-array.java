@@ -39,35 +39,25 @@ class Solution{
     // Function to find floor of x
     // arr: input array
     // n is the size of array
-    
-    //floor == lowerbound
-    static int lower(long[]arr,long x)
+    static int findFloor(long arr[], int n, long x)
     {
-        int low=0;
-        int high=arr.length-1;
         int ans=-1;
-        while(low<=high)
+        int i=0;
+        int j=arr.length-1;
+        while(i<=j)
         {
-            int mid=low+(high-low)/2;
-            if(arr[mid]<=(int)x)
+            int mid=(i+j)/2;
+            if(arr[mid]<=x)
             {
                 ans=mid;
-                low=mid+1;
+                i=mid+1;
             }
             else{
-                
-                high=mid-1;
+             
+                j=mid-1;
             }
         }
         return ans;
-    }
-    static int findFloor(long arr[], int n, long x)
-    {
-        int res=lower(arr,x);
-
-        return res;
-        
-        
     }
     
 }
