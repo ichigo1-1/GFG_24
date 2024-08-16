@@ -50,28 +50,23 @@ class Solution
         // add your code here
         Arrays.sort(arr);
         Arrays.sort(dep);
-     int platform = 1;
-    int max = 1;
-    int i = 1, j = 0;
-
-    while(i<n && j<n)
-    {
-        if(arr[i]<=dep[j])
+        int i=0,j=0;
+        int platform=0;
+        int max=0;
+        while(i<n)
         {
-            platform++;
-            i++;
+            if(arr[i]<=dep[j])
+            {
+                platform++;
+                i++;
+            }
+            else{
+                platform--;
+                j++;
+            }
+            max=Math.max(platform,max);
         }
-        else if(dep[j]<arr[i])
-        {
-            platform--;
-            j++;
-        }
-        if(platform>max)
-        {
-            max=platform;
-        }
-    }
-    return max;
+        return max;
     }
     
 }
