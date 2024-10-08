@@ -59,54 +59,66 @@ class Solution
 {
     void merge(int arr[], int l, int m, int r)
     {
-         // Your code 
-        ArrayList<Integer>temp=new ArrayList<>();
-        int left=l;
-        int right=m+1;
-        while(left<=m && right<=r)
-        {
-            if(arr[left]<=arr[right])
-            {
-                temp.add(arr[left++]);
-            }
-            else{
-                temp.add(arr[right++]);
-            }
-        }
-        while(left<=m)
-        {
-            temp.add(arr[left++]);
-        }
-        while(right<=r)
-        {
-            temp.add(arr[right++]);
-        }
-        //put back
-        for(int i=l;i<=r;i++)
-        {
-            arr[i]=temp.get(i-l);
-        }
-        
+        // Create a temporary array to store merged elements
+        int []temp = new int[r - l + 1];
+        int low = l;
+        int high = m + 1;
+        int index = 0;
 
+        // Merge the two subarrays
+        while (low <= m && high <= r)
+        {
+            if (arr[low] <= arr[high])
+            {
+                temp[index++] = arr[low++];
+            }
+            else
+            {
+                temp[index++] = arr[high++];
+            }
+        }
+
+        // Copy remaining elements from the left subarray (if any)
+        while (low <= m)
+        {
+            temp[index++] = arr[low++];
+        }
+
+        // Copy remaining elements from the right subarray (if any)
+        while (high <= r)
+        {
+            temp[index++] = arr[high++];
+        }
+
+        // Copy the merged elements back to the original array
+        for (int i = 0; i < temp.length; i++)
+        {
+            arr[l + i] = temp[i]; // Correct index calculation
+        }
     }
-    void mergeSort2(int[]arr,int l,int r)
+
+    void sort(int[] arr, int l, int r)
     {
-        if(l>=r)
+        // Base case: when the subarray has one or no elements
+        if (l >= r)
         {
             return;
         }
-        int mid=(l+r)/2;
-        mergeSort2(arr,l,mid);
-        mergeSort2(arr,mid+1,r);
-        merge(arr,l,mid,r);
-        
+
+        // Find the middle point
+        int mid = (l + r) / 2;
+
+        // Sort the first half and the second half
+        sort(arr, l, mid);
+        sort(arr, mid + 1, r);
+
+        // Merge the sorted halves
+        merge(arr, l, mid, r);
     }
+
     void mergeSort(int arr[], int l, int r)
     {
-        //code here
-        //base case
-        int n=arr.length;
-        mergeSort2(arr,0,n-1);
-        
+        // Call the recursive sort function to sort the entire array
+        sort(arr, l, r);
     }
 }
