@@ -48,7 +48,10 @@ class Solution
     int[] JobScheduling(Job arr[], int n)
     {
         // Your code here
-        Arrays.sort(arr,(a,b)->b.profit-a.profit);//descending sorting
+        Arrays.sort(arr,(a,b)->b.profit-a.profit);
+        
+        int profit=0;
+        int count=0;
         int maxdead=0;
         for(int i=0;i<n;i++)
         {
@@ -56,11 +59,9 @@ class Solution
         }
         int[]hash=new int[maxdead+1];
         Arrays.fill(hash,-1);
-        int profit=0;
-        int count=0;
         for(int i=0;i<n;i++)
         {
-            for(int j=arr[i].deadline;j>=1;j--) // changed from j>=0 to j>=1
+            for(int j=arr[i].deadline;j>=1;j--)
             {
                 if(hash[j]==-1)
                 {
@@ -70,10 +71,14 @@ class Solution
                     break;
                 }
             }
+            
         }
         return new int[]{count,profit};
     }
 }
+
+
+
 /*
 class Job {
     int id, profit, deadline;
