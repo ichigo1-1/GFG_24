@@ -31,15 +31,16 @@ class GFG {
 class Solution {
     static int solve(int bt[] ) {
     // code here
-    int wait=0;
-    int time=0;
     Arrays.sort(bt);
+    int wait=0;
+    int sum=0;
     for(int it:bt)
     {
-        wait+=time;
-        time+=it;
+        wait+=sum;
+        sum+=it;
     }
-    return (wait/bt.length);
+    int n=bt.length;
+    return wait/n;
 
   }
 }
